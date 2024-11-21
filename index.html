@@ -7,12 +7,17 @@
   <meta name="viewport" content="width=device-width, initial scale=1.0">
   <style>
     header {
+      text-align: center;
       font-family: Arial;
       font-size: 26pt;
       font-weight: bold;
     }
 
     main {
+      --margin: 1cm;
+      margin-left: var(--margin);
+      margin-right: var(--margin);
+      --width: calc(100vw - 2 * var(--margin));
       font-family: Arial;
       font-size: 12pt;
     }
@@ -23,16 +28,26 @@
 
     .question {
       background-color: #aff;
+      display: flex;
+      align-items: justify;
       color: #002;
       font-weight: 385;
-      display: flex;
-      width: 730pt;
+      min-width: calc(var(--width));
       margin-bottom: 2pt;
     }
 
     .question1 {
       display: block;
-      width: 1100pt;
+      box-sizing: border-box;
+      min-width: calc(var(--width) * 0.62);
+      padding: 10px;
+    }
+    
+    .question2 {
+      display: block;
+      box-sizing: border-box;
+      min-width: calc(var(--width) * 0.38);
+      padding: 10px;
     }
     
     .aldine {
