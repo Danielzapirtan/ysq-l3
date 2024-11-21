@@ -337,6 +337,7 @@ questions.forEach((question, index) => {
   });
 
   select.selectedIndex = Math.floor(Math.random() * 6);
+  select.className = "question2";
   questionDiv.appendChild(select);
 
   // Append questionDiv with question and select directly to container
