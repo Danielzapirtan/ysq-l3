@@ -4,218 +4,38 @@
 <head>
   <title>Chestionar YSQ-L3</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial scale=1.0">
   <style>
-    @media (max-resolution: 3.0dppx) {
-      :root {
-        --font-size: 12pt;
-      }
-    }
-
-    :root {
-      font-size: var(--font-size, 10pt);
-      --spacing: 5pt;
-      --margin: 28pt;
-      --width: calc(100vw - 2 * var(--margin));
-      --gap: 4pt;
-      --gap2: 14pt;
-      --ans: 22pt;
-      --schema: 330pt;
-      --nr: 54pt;
-      --bare: 224pt;
-    }
-
-    body {
+    header {
       font-family: Arial;
-      font-size: var(--font-size);
-      margin-left: var(--margin);
-      margin-right: var(--margin);
+      font-size: 26pt;
+      font-weight: bold;
     }
 
-    .aldine {
-      font-weight: bold;
+    main {
+      font-family: Arial;
+      font-size: 12pt;
     }
 
     .spacing {
-      height: var(--spacing);
+      height: 5pt;
     }
 
-    button {
-      font-family: Arial;
-      background-color: #22eeff;
-      text-align: left;
-      /* Albastru plăcut */
-      color: #000;
-      /* Text alb */
-      padding: 5pt 10pt;
-      /* Spațiere confortabilă */
-      font-size: 1em;
-      /* Text lizibil */
-      font-weight: bold;
-      /* Text îndrăzneț */
-      border: none;
-      /* Fără bordură */
-      border-radius: 8px;
-      /* Colțuri rotunjite */
-      cursor: pointer;
-      /* Cursor pointer */
-      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-      /* Umbra */
-      display: inline-block;
-      transition: transform 0.1s, box-shadow 0.1s;
-      /* Animație */
-    }
-
-    button:hover {
-      background-color: #0056b3;
-      /* Schimbare ușoară de culoare la hover */
-    }
-
-    button:active {
-      transform: scale(0.96);
-      /* Efect de apăsare */
-      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-      /* Umbra devine mai mică */
-    }
-
-    .clickable {
-      transition: background-color 0.3s;
-      cursor: pointer;
-    }
-
-    .clickable:hover,
-    .clickable:focus {
-      background-color: #f0f0f0;
-      outline: 2px solid #000;
-      /* Adds an outline on focus */
-    }
-
-    .container {
+    .question {
+      background-color: #aff;
+      color: #002;
+      font-weight: 385;
       display: flex;
-      width: 400mm;
-      align-items: center;
+      width: 730pt;
+      margin-bottom: 2pt;
     }
 
-    .buttons {
-      flex-direction: row;
-      width: calc(var(--schema) + var(--gap) + var(--nr) + var(--gap2));
+    .question1 {
+      display: block;
+      width: 1100pt;
     }
-
-    .bar-container {
-      display: flex;
-      flex-direction: column;
-      width: 170mm;
-      /*gap: 10px;*/
-    }
-
-    .qanda-container {
-      font-size: 1em;
-      display: flex;
-      flex-direction: row;
-      max-width: var(--width);
-      text-align: left;
-      text-align-last: left;
-    }
-
-    .quest {
-      display: inline-block;
-      min-width: calc(var(--width) - var(--gap) - var(--ans));
-    }
-
-    .gap {
-      display: inline-block;
-      min-width: var(--gap);
-      text-background: #fff;
-    }
-
-    .gap2 {
-      display: inline-block;
-      min-width: var(--gap2);
-      text-background: #fff;
-    }
-
-    .ans {
-      display: inline-block;
-      min-width: var(--ans);
-    }
-
-    .bar-wrapper {
-      display: flex;
-      align-items: left;
-    }
-
-    .bar {
-      cursor: pointer;
-      height: 12.5pt;
-      margin: 0;
-      padding: 0;
-    }
-
-    .bar1 {
-      background-color: lightblue;
-    }
-
-    .bar2 {
-      background-color: lightcoral;
-    }
-
-    .number {
-      margin-left: 10px;
-    }
-
-    .header-record {
-      width: calc(var(--schema) + var(--gap) + var(--nr) + var(--gap2) + var(--bare));
-      display: flex;
-    }
-
-    .th1 {
-      width: var(--schema);
-      background-color: #fb5;
-      text-align: center;
-      margin-right: 0;
-    }
-
-    .th2 {
-      width: var(--nr);
-      font-family: Arial;
-      background-color: #fb5;
-      text-align: center;
-      margin-right: 0;
-    }
-
-    .th3 {
-      width: var(--bare);
-      background-color: #fb5;
-      text-align: center;
-      margin-right: 0;
-    }
-
-    .li-click {
-      width: var(--schema);
-      text-align: left;
-      margin-right: 0pt;
-    }
-
-    .schema-click {
-      width: var(--nr);
-      font-family: Arial;
-      text-align: left;
-      margin-right: 0pt;
-    }
-
-    ul {
-      list-style-type: none;
-    }
-
-    ul li:not(:last-child) {
-      margin-bottom: 1pt;
-      flex-direction: column;
-    }
-
-    .schema-color {
-      padding: 10px;
-      margin: 5px 0;
-      color: white;
+    
+    .aldine {
       font-weight: bold;
     }
 
@@ -227,48 +47,46 @@
 
 <body>
   <header>
-    <div id="antet" style="font-weight: bold; text-align: center; font-size: 1.67rem;">Rezultate Chestionar YSQ-L3
-    </div>
-    <div class="spacing"></div>
-    <div class="spacing"></div>
-    <div id="fullname" style="font-size: 1em; margin: 0;">
-    </div>
-    <div class="spacing"></div>
+    <div>Chestionarul schemelor cognitive Young</div>
+    <div>YSQ-L3</div>
   </header>
-  <main style="margin: 0; padding: 0;">
-    <div class="hidden">
-      <label>R: <input type="range" id="red-slider" min="0" max="255" value="255"></label>
-      <label>G: <input type="range" id="green-slider" min="0" max="255" value="0"></label>
-      <label>B: <input type="range" id="blue-slider" min="0" max="255" value="255"></label>
-      <div id="color-preview" style="width: 100px; height: 50px; background-color: rgb(255, 0, 255); margin-top: 10px;"></div>
-      <select id="color-target">
-        <option value="magenta1">Magenta 1</option>
-        <option value="magenta2">Magenta 2</option>
-        <option value="magenta3">Magenta 3</option>
-        <option value="magenta4">Magenta 4</option>
-        <option value="magenta5">Magenta 5</option>
-        <option value="magenta6">Magenta 6</option>
-      </select><br><br>
-      <button id="save-color">Salvează Culoare</button><br>
+  <main>
+    <div id="patient">
+      <div class="spacing"></div>
+      <div class="spacing"></div>
+      <form id="questionnaireForm" onsubmit="submitForm(event)">
+        <label for="firstname" class="aldine">Prenume: </label>
+        <input type="text" id="firstname" required>
+        <label for="lastname" class="aldine">Nume: </label>
+        <input type="text" id="lastname" required>
+        <div class="spacing"></div>
+        <div class="spacing"></div>
+        <div class="aldine">
+          Instrucțiuni pentru completarea chestionarului:
+        </div>
+          Citiți cu atenție fiecare afirmație de mai jos, concepută pentru a vă ajuta să vă definiți pe dumneavoastră înșivă. Evaluați cât de bine vă descrie fiecare afirmație, reflectând asupra modului în care se aplică la propria persoană. Dacă totuși nu sunteți sigur, bazați-vă pe reacția emoțională și alegeți răspunsul care reflectă ceea ce simțiți, nu ceea ce credeți că ar trebui să fie adevărat! Selectați calificativul potrivit pentru fiecare afirmație, alegând opțiunea care indică cel mai bine gradul în care afirmația vi se potrivește. Continuați acest proces până când ați evaluat toate afirmațiile.
+        <div class="spacing"></div>
+        Fiți sincer în răspunsuri pentru a obține o reflecție autentică a percepției de sine. Nu petreceți prea mult timp pe o singură afirmație; prima impresie este adesea cea mai revelatoare.
+        <div class="spacing"></div>
+        La sfârșit, apăsați 
+        <span class="aldine">'Descarcă fișier CSV'</span>
+        și trimiteți-l de pe dispozitivul dumneavoastră psihoterapeutului prin e-mail.
+        <div class="spacing"></div>
+        <div class="spacing"></div>
+        <div id="questions"></div>
+        <div class="spacing"></div>
+        <div class="spacing"></div>
+        <button type="submit">Descarcă fișier CSV</button> <!-- Move submit button inside the form -->
+        <div class="spacing"></div>
+        <div class="spacing"></div>
+        <div class="spacing"></div>
+      </form>
     </div>
-
-    <div class="hidden">
-      <h3>Exemplu Elemente:</h3>
-      <span class="magenta1">Magenta 1</span>
-      <span class="magenta2">Magenta 2</span>
-      <span class="magenta3">Magenta 3</span>
-      <span class="magenta4">Magenta 4</span>
-      <span class="magenta5">Magenta 5</span>
-      <span class="magenta6">Magenta 6</span><br><br>
-    </div>
-    <span id="clinician">
-      <input type="file" id="csvFileInput" accept=".csv">
-      <button id="processCSV">Procesează CSV</button>
-    </span>
-    <ul style="margin: 0; padding: 0;" id="schemaScores"></ul>
   </main>
+  <!--  <a id="downloadCSV" style="display: none;"></a> <!-- Create a hidden link for download -->
   <footer>
-    <script src="script.js"></script>
+    <script src="script.js">
+    </script>
   </footer>
 </body>
 
