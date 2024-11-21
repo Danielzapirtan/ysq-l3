@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+  <title>Chestionar YSQ-L3</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    @media (max-resolution: 3.0dppx) {
+      :root {
+        --font-size: 12pt;
+      }
+    }
+
+    :root {
+      font-size: var(--font-size, 10pt);
+      --spacing: 5pt;
+      --margin: 28pt;
+      --width: calc(100vw - 2 * var(--margin));
+      --gap: 4pt;
+      --gap2: 14pt;
+      --ans: 22pt;
+      --schema: 330pt;
+      --nr: 54pt;
+      --bare: 224pt;
+    }
+
+    body {
+      font-family: Arial;
+      font-size: var(--font-size);
+      margin-left: var(--margin);
+      margin-right: var(--margin);
+    }
+
+    .aldine {
+      font-weight: bold;
+    }
+
+    .spacing {
+      height: var(--spacing);
+    }
+
+    button {
+      font-family: Arial;
+      background-color: #22eeff;
+      text-align: left;
+      /* Albastru plăcut */
+      color: #000;
+      /* Text alb */
+      padding: 5pt 10pt;
+      /* Spațiere confortabilă */
+      font-size: 1em;
+      /* Text lizibil */
+      font-weight: bold;
+      /* Text îndrăzneț */
+      border: none;
+      /* Fără bordură */
+      border-radius: 8px;
+      /* Colțuri rotunjite */
+      cursor: pointer;
+      /* Cursor pointer */
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      /* Umbra */
+      display: inline-block;
+      transition: transform 0.1s, box-shadow 0.1s;
+      /* Animație */
+    }
+
+    button:hover {
+      background-color: #0056b3;
+      /* Schimbare ușoară de culoare la hover */
+    }
+
+    button:active {
+      transform: scale(0.96);
+      /* Efect de apăsare */
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+      /* Umbra devine mai mică */
+    }
+
+    .clickable {
+      transition: background-color 0.3s;
+      cursor: pointer;
+    }
+
+    .clickable:hover,
+    .clickable:focus {
+      background-color: #f0f0f0;
+      outline: 2px solid #000;
+      /* Adds an outline on focus */
+    }
+
+    .container {
+      display: flex;
+      width: 400mm;
+      align-items: center;
+    }
+
+    .buttons {
+      flex-direction: row;
+      width: calc(var(--schema) + var(--gap) + var(--nr) + var(--gap2));
+    }
+
+    .bar-container {
+      display: flex;
+      flex-direction: column;
+      width: 170mm;
+      /*gap: 10px;*/
+    }
+
+    .qanda-container {
+      font-size: 1em;
+      display: flex;
+      flex-direction: row;
+      max-width: var(--width);
+      text-align: left;
+      text-align-last: left;
+    }
+
+    .quest {
+      display: inline-block;
+      min-width: calc(var(--width) - var(--gap) - var(--ans));
+    }
+
+    .gap {
+      display: inline-block;
+      min-width: var(--gap);
+      text-background: #fff;
+    }
+
+    .gap2 {
+      display: inline-block;
+      min-width: var(--gap2);
+      text-background: #fff;
+    }
+
+    .ans {
+      display: inline-block;
+      min-width: var(--ans);
+    }
+
+    .bar-wrapper {
+      display: flex;
+      align-items: left;
+    }
+
+    .bar {
+      cursor: pointer;
+      height: 12.5pt;
+      margin: 0;
+      padding: 0;
+    }
+
+    .bar1 {
+      background-color: lightblue;
+    }
+
+    .bar2 {
+      background-color: lightcoral;
+    }
+
+    .number {
+      margin-left: 10px;
+    }
+
+    .header-record {
+      width: calc(var(--schema) + var(--gap) + var(--nr) + var(--gap2) + var(--bare));
+      display: flex;
+    }
+
+    .th1 {
+      width: var(--schema);
+      background-color: #fb5;
+      text-align: center;
+      margin-right: 0;
+    }
+
+    .th2 {
+      width: var(--nr);
+      font-family: Arial;
+      background-color: #fb5;
+      text-align: center;
+      margin-right: 0;
+    }
+
+    .th3 {
+      width: var(--bare);
+      background-color: #fb5;
+      text-align: center;
+      margin-right: 0;
+    }
+
+    .li-click {
+      width: var(--schema);
+      text-align: left;
+      margin-right: 0pt;
+    }
+
+    .schema-click {
+      width: var(--nr);
+      font-family: Arial;
+      text-align: left;
+      margin-right: 0pt;
+    }
+
+    ul {
+      list-style-type: none;
+    }
+
+    ul li:not(:last-child) {
+      margin-bottom: 1pt;
+      flex-direction: column;
+    }
+
+    .schema-color {
+      padding: 10px;
+      margin: 5px 0;
+      color: white;
+      font-weight: bold;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div id="antet" style="font-weight: bold; text-align: center; font-size: 1.67rem;">Rezultate Chestionar YSQ-L3
+    </div>
+    <div class="spacing"></div>
+    <div class="spacing"></div>
+    <div id="fullname" style="font-size: 1em; margin: 0;">
+    </div>
+    <div class="spacing"></div>
+  </header>
+  <main style="margin: 0; padding: 0;">
+    <div class="hidden">
+      <label>R: <input type="range" id="red-slider" min="0" max="255" value="255"></label>
+      <label>G: <input type="range" id="green-slider" min="0" max="255" value="0"></label>
+      <label>B: <input type="range" id="blue-slider" min="0" max="255" value="255"></label>
+      <div id="color-preview" style="width: 100px; height: 50px; background-color: rgb(255, 0, 255); margin-top: 10px;"></div>
+      <select id="color-target">
+        <option value="magenta1">Magenta 1</option>
+        <option value="magenta2">Magenta 2</option>
+        <option value="magenta3">Magenta 3</option>
+        <option value="magenta4">Magenta 4</option>
+        <option value="magenta5">Magenta 5</option>
+        <option value="magenta6">Magenta 6</option>
+      </select><br><br>
+      <button id="save-color">Salvează Culoare</button><br>
+    </div>
+
+    <div class="hidden">
+      <h3>Exemplu Elemente:</h3>
+      <span class="magenta1">Magenta 1</span>
+      <span class="magenta2">Magenta 2</span>
+      <span class="magenta3">Magenta 3</span>
+      <span class="magenta4">Magenta 4</span>
+      <span class="magenta5">Magenta 5</span>
+      <span class="magenta6">Magenta 6</span><br><br>
+    </div>
+    <span id="clinician">
+      <input type="file" id="csvFileInput" accept=".csv">
+      <button id="processCSV">Procesează CSV</button>
+    </span>
+    <ul style="margin: 0; padding: 0;" id="schemaScores"></ul>
+  </main>
+  <footer>
+    <script src="script.js"></script>
+  </footer>
+</body>
+
+</html>
