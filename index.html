@@ -9,6 +9,7 @@
     :root {
       --font-size: 0.137in;
       --spacing: 0.1in;
+      --ans: 3.75in;
     }
     header {
       text-align: center;
@@ -44,14 +45,14 @@
       display: block;
       text-align: left;
       box-sizing: border-box;
-      min-width: calc(var(--width) - 4in);
+      min-width: calc(var(--width) - var(--ans));
     }
     
    .question2 {
       display: block;
       text-align: right;
       box-sizing: border-box;
-      min-width: 4in;
+      min-width: var(--ans);
     }
     
     .aldine {
