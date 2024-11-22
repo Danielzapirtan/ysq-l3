@@ -6,10 +6,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial scale=1.0">
   <style>
+    :root {
+      --font-size: 0.137in;
+    }
     header {
       text-align: center;
       font-family: Arial;
-      font-size: 26pt;
+      font-size: 0.35in;
       font-weight: bold;
     }
 
@@ -19,11 +22,11 @@
       margin-right: var(--margin);
       --width: calc(100vw - 2 * var(--margin));
       font-family: Arial;
-      font-size: 0.137in;
+      font-size: var(--font-size);
     }
 
     .spacing {
-      height: 2.5pt;
+      height: 3pt;
     }
 
     .question {
@@ -36,32 +39,31 @@
       margin-bottom: 2pt;
     }
 
-    .question2 {
-      display: block;
-      white-space: normal;
-      text-align: right;
-      box-sizing: border-box;
-      min-width: 6.5cm;
-      padding: 10px;
-    }
-    
-    .question1 {
+     .question1 {
       display: block;
       text-align: left;
       box-sizing: border-box;
-      min-width: calc(var(--width) - 2.5in);
+      min-width: calc(var(--width) - 4in);
       padding: 10px;
     }
     
+   .question2 {
+      display: block;
+      text-align: right;
+      box-sizing: border-box;
+      min-width: 4in;
+      padding: 10px;
+    }
+    
+    .aldine {
+      font-weight: bold;
+    }
+
     .hidden {
       display: none;
     }
   </style>
 </head>
-
-    .aldine {
-      font-weight: bold;
-    }
 
 <body>
   <header>
