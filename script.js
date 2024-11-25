@@ -323,7 +323,11 @@ const questions = [
 questions.forEach((question, index) => {
   const questionDiv = document.createElement("div");
   questionDiv.className = "question";
-  questionDiv.innerHTML = `<div class=question1>${question}</div>`;
+  const quenr = question.match("^[0-9]\+\. ")[0];
+  const skipnr = quenr.length;
+  const quest00 = question.slice(skipnr);
+  questionDiv.innerHTML = `<div class="quenr">${quenr}</div>`;
+  questionDiv.innerHTML += `<div class=question1>${quest00}</div>`;
 
   // Create a dropdown for each question
   const select = document.createElement("select");
