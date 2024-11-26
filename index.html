@@ -15,7 +15,7 @@
     }
     header {
       text-align: center;
-      font-family: Arial;
+      font-family: Helvetica, sans-serif;
       font-size: 0.35in;
       font-weight: bold;
     }
@@ -40,8 +40,8 @@
       align-items: justify;
       color: #002;
       font-weight: 385;
-      min-width: 7.3in;
-      max-width: 7.3in;
+      min-width: var(--width);
+      max-width: var(--width);
       margin-bottom: 0.0137in;
     }
 
@@ -54,8 +54,8 @@
       display: block;
       text-align: left;
       box-sizing: border-box;
-      min-width: 5in;
-      max-width: 5in;
+      min-width: calc(var(--width) - var(--quenr) - var(--ans));
+      max-width: calc(var(--width) - var(--quenr) - var(--ans));
       text-indent: -var(--indent);
       margin-left: -var(--indent);
       padding-left: var(--indent);
