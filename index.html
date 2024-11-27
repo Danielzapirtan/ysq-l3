@@ -12,9 +12,10 @@
       --ans: 3.77in;
       --quenr: 0.14in;
       --indent: var(--quenr);
-      --margin: 0.34in;
-      --adjust: 0.205in;
-      --width: calc(100vw - 2 * var(--margin) - var(--adjust));
+      --margin-left: 5mm;
+      --margin-right: 6mm;
+      --margins calc(var(--margin-left) + var(--margin-right));
+      --width: calc(100vw - var(--margins));
     }
     header {
       text-align: center;
@@ -24,8 +25,8 @@
     }
 
     main {
-      margin-left: var(--margin);
-      margin-right: var(--margin);
+      margin-left: var(--margin-left);
+      margin-right: var(--margin-right);
       font-family: Helvetica, sans-serif;
       font-size: var(--font-size);
     }
