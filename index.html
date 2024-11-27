@@ -12,9 +12,9 @@
       --ans: 3.77in;
       --quenr: 0.14in;
       --indent: var(--quenr);
-      --indent2: 0.24in;
-      --margin: 1cm;
-      --width: calc(100vw - 2 * var(--margin));
+      --margin: 0.34in;
+      --adjust: 0.205in;
+      --width: calc(100vw - 2 * var(--margin) - var(--adjust));
     }
     header {
       text-align: center;
@@ -41,8 +41,8 @@
       align-items: justify;
       color: #002;
       font-weight: 385;
-      min-width: calc(var(--width) - var(--indent2));
-      max-width: calc(var(--width) - var(--indent2));
+      min-width: var(--width);
+      max-width: var(--width);
       margin-bottom: 0.0137in;
     }
 
@@ -56,8 +56,8 @@
       display: block;
       text-align: left;
       box-sizing: border-box;
-      min-width: calc(var(--width) - var(--quenr) - var(--ans) - var(--indent2));
-      max-width: calc(var(--width) - var(--quenr) - var(--ans) - var(--indent2));
+      min-width: calc(var(--width) - var(--quenr) - var(--ans)); 
+      max-width: calc(var(--width) - var(--quenr) - var(--ans));
       text-indent: -var(--indent);
       margin-left: -var(--indent);
       padding-left: var(--indent);
