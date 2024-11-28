@@ -12,11 +12,14 @@
       --ans: 97mm;
       --quenr: 3.55mm;
       --indent: var(--quenr);
-      --margin-left: 8mm;
-      --margin-right: 17mm;
+      --radius: 3mm;
+      --paddr: 1.5mm;
+      --margin-left: 5.5mm;
+      --margin-right: 11mm;
       --margins: calc(var(--margin-left) + var(--margin-right));
       --width: calc(100vw - var(--margins));
     }
+    
     header {
       text-align: center;
       font-family: Helvetica, sans-serif;
@@ -44,24 +47,33 @@
       font-weight: 385;
       min-width: var(--width);
       max-width: var(--width);
-      margin-bottom: 0.0137in;
+      margin-bottom: 0.35mm;
     }
 
     .quenr {
       display: block;
       min-width: var(--quenr);
       max-width: var(--quenr);
+      border-top-left-radius: var(--radius);
+      border-bottom-left-radius: var(--radius);
     }
     
     .question1 {
       display: block;
       text-align: left;
       box-sizing: border-box;
-      min-width: calc(var(--width) - var(--quenr) - var(--ans)); 
-      max-width: calc(var(--width) - var(--quenr) - var(--ans));
+      min-width: calc(var(--width) - var(--quenr) - var(--ans) - var(--paddr)); 
+      max-width: calc(var(--width) - var(--quenr) - var(--ans) - var(--paddr));
       text-indent: -var(--indent);
       margin-left: -var(--indent);
       padding-left: var(--indent);
+      border-top-right-radius: var(--radius);
+      border-bottom-right-radius: var(--radius);
+    }
+    
+    .gap {
+      width: var(--paddr);
+      background-color: white;
     }
     
    .question2 {
