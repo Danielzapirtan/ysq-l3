@@ -10,7 +10,7 @@
       --font-size: 3.5mm;
       --spacing: 2.55mm;
       --ans: 97mm;
-      --quenr: 3.55mm;
+      --quenr: 5.8mm;
       --indent: var(--quenr);
       --radius: 3mm;
       --paddr: 1.5mm;
@@ -39,7 +39,6 @@
     }
 
     .question {
-      background-color: #aff;
       display: flex;
       flex-direction: row;
       align-items: justify;
@@ -51,7 +50,8 @@
     }
 
     .quenr {
-      display: block;
+      display: inline-block;
+      background-color: #aff;
       min-width: var(--quenr);
       max-width: var(--quenr);
       border-top-left-radius: var(--radius);
@@ -59,7 +59,8 @@
     }
     
     .question1 {
-      display: block;
+      display: inline-block;
+      background-color: #aff;
       text-align: left;
       box-sizing: border-box;
       min-width: calc(var(--width) - var(--quenr) - var(--ans) - var(--paddr)); 
