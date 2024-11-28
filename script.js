@@ -327,7 +327,7 @@ questions.forEach((question, index) => {
   const skipnr = quenr.length;
   const quest00 = question.slice(skipnr);
   questionDiv.innerHTML = `<div class="quenr">${quenr}</div>`;
-  questionDiv.innerHTML += `<div class=question1>${quest00}</div>`;
+  questionDiv.innerHTML += `<div class=question1>${quest00}</div><div class="gap"></div>`;
 
   // Create a dropdown for each question
   const select = document.createElement("select");
