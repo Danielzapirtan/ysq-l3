@@ -389,6 +389,20 @@ function main() {
     exportToCSV(responses);
     //processResponses(myResponses);
   }
+    function saveFile() {
+      const fileContent = document.getElementById('fileContent').value;
+      fetch('/api/save-file', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ content: fileContent })
+      })
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(error => console.error(error));
+    }
+
 }
 
 document.addEventListener('DOMContentLoaded', main);
