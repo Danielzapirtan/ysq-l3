@@ -342,6 +342,34 @@ questions.forEach((question, index) => {
 
   select.selectedIndex = -1; // Math.floor(Math.random() * 6);
   select.className = "question2";
+/*Here's an idea for a keyboard shortcut to toggle between random and -1:
+Shortcut: Ctrl+Shift+R (or Cmd+Shift+R on Mac)
+How it works:
+ * Initial state: When the user first interacts with the select element, no option is selected, and selectedIndex is set to -1.
+ * Toggling:
+   * First press: When the user presses Ctrl+Shift+R, the script generates a random number between 0 and the number of options - 1, and sets selectedIndex to that random number.
+   * Second press: If the user presses Ctrl+Shift+R again, the script sets selectedIndex back to -1, clearing the selection.
+   * Subsequent presses: The process repeats, alternating between random selection and no selection.
+Implementation:
+You can implement this functionality by adding an event listener to the select element:*/
+select.addEventListener('keydown', (event) => {
+  if (event.ctrlKey && event.altKey && event.key === 'F3') {
+    event.preventDefault(); // Prevent default browser behavior
+
+    if (select.selectedIndex === -1) {
+      select.selectedIndex = Math.floor(Math.random() * options.length);
+    } else {
+      select.selectedIndex = -1;
+    }
+  }
+});
+
+/*Customization:
+ * You can adjust the shortcut key combination to fit your preferences.
+ * Consider adding a visual indicator to show the current selection state (e.g., a different background color or border).
+ * You might want to provide a tooltip or context menu option to explain the shortcut's functionality.
+By implementing this keyboard shortcut, you can provide a convenient way for users to quickly toggle between random and no selection, enhancing the user experience.
+*/
   questionDiv.appendChild(select);
 
   // Append questionDiv with question and select directly to container
