@@ -10,8 +10,9 @@
       --font-size: 3.5mm;
       --spacing: 2.55mm;
       --ans: 97mm;
-      --quenr: 10mm;
+      --quenr: 6.5mm;
       --indent: var(--quenr);
+      --indent1: 1em;
       --radius: 3mm;
       --paddr: 1.5mm;
       --margin-left: 5.5mm;
@@ -52,9 +53,10 @@
     .quenr {
       display: inline-block;
       background-color: #aff;
+      text-align: right;
+      padding-left: 3mm;
       min-width: var(--quenr);
       max-width: var(--quenr);
-      text-indent: 3mm;
       border-top-left-radius: var(--radius);
       border-bottom-left-radius: var(--radius);
     }
@@ -66,9 +68,9 @@
       box-sizing: border-box;
       min-width: calc(var(--width) - var(--quenr) - var(--ans) - var(--paddr)); 
       max-width: calc(var(--width) - var(--quenr) - var(--ans) - var(--paddr));
-      text-indent: -var(--indent);
-      margin-left: var(--indent);
-      padding-left: var(--indent);
+      text-indent: -var(--indent1);
+      margin-left: -var(--indent1);
+      padding-left: var(--indent1);
       border-top-right-radius: var(--radius);
       border-bottom-right-radius: var(--radius);
     }
