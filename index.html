@@ -20,7 +20,7 @@
       --margins: calc(var(--margin-left) + var(--margin-right));
       --width: calc(100vw - var(--margins));
     }
-    
+
     header {
       text-align: center;
       font-family: Helvetica, sans-serif;
@@ -60,13 +60,13 @@
       border-top-left-radius: var(--radius);
       border-bottom-left-radius: var(--radius);
     }
-    
+
     .question1 {
       display: inline-block;
       background-color: #aff;
       text-align: left;
       box-sizing: border-box;
-      min-width: calc(var(--width) - var(--quenr) - var(--ans) - var(--paddr)); 
+      min-width: calc(var(--width) - var(--quenr) - var(--ans) - var(--paddr));
       max-width: calc(var(--width) - var(--quenr) - var(--ans) - var(--paddr));
       text-indent: -var(--indent1);
       margin-left: -var(--indent1);
@@ -74,21 +74,30 @@
       border-top-right-radius: var(--radius);
       border-bottom-right-radius: var(--radius);
     }
-    
+
     .gap {
       width: var(--paddr);
       background-color: white;
     }
-    
-   .question2 {
+
+    .question2:hover {
+      background-color: #f0f0f0;
+      transform: scale(1.05);
+      /* Slightly enlarge on hover */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      /* Add subtle shadow */
+    }
+
+    .question2 {
       display: block;
       cursor: pointer;
+      transition: all 0.3s ease;
       text-align: left;
       box-sizing: border-box;
       min-width: var(--ans);
       max-width: var(--ans);
     }
-    
+
     .aldine {
       font-weight: bold;
     }
@@ -118,11 +127,11 @@
         <div class="aldine">
           Instrucțiuni pentru completarea chestionarului:
         </div>
-          Citiți cu atenție fiecare afirmație de mai jos, concepută pentru a vă ajuta să vă definiți pe dumneavoastră înșivă. Evaluați cât de bine vă descrie fiecare afirmație, reflectând asupra modului în care se aplică la propria persoană. Dacă totuși nu sunteți sigur, bazați-vă pe reacția emoțională și alegeți răspunsul care reflectă ceea ce simțiți, nu ceea ce credeți că ar trebui să fie adevărat! Selectați calificativul potrivit pentru fiecare afirmație, alegând opțiunea care indică cel mai bine gradul în care afirmația vi se potrivește. Continuați acest proces până când ați evaluat toate afirmațiile.
+        Citiți cu atenție fiecare afirmație de mai jos, concepută pentru a vă ajuta să vă definiți pe dumneavoastră înșivă. Evaluați cât de bine vă descrie fiecare afirmație, reflectând asupra modului în care se aplică la propria persoană. Dacă totuși nu sunteți sigur, bazați-vă pe reacția emoțională și alegeți răspunsul care reflectă ceea ce simțiți, nu ceea ce credeți că ar trebui să fie adevărat! Selectați calificativul potrivit pentru fiecare afirmație, alegând opțiunea care indică cel mai bine gradul în care afirmația vi se potrivește. Continuați acest proces până când ați evaluat toate afirmațiile.
         <div class="spacing"></div>
         Fiți sincer în răspunsuri pentru a obține o reflecție autentică a percepției de sine. Nu petreceți prea mult timp pe o singură afirmație; prima impresie este adesea cea mai revelatoare.
         <div class="spacing"></div>
-        La sfârșit, apăsați 
+        La sfârșit, apăsați
         <span class="aldine">'Descarcă fișier CSV'</span>
         și trimiteți-l de pe dispozitivul dumneavoastră psihoterapeutului prin e-mail.
         <div class="spacing"></div>
