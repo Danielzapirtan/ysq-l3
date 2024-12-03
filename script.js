@@ -323,7 +323,48 @@ const questions = [
 questions.forEach((question, index) => {
   const questionDiv = document.createElement("div");
   questionDiv.className = "question";
-  const quenr = question.match("^[0-9]\+\. ")[0];
+
+  const skipnr = question.indexOf('.') + 1;
+  const quest00 = question.slice(skipnr);
+
+  questionDiv.innerHTML = `<div class="quenr">${question.slice(0, skipnr)}</div>`;
+  questionDiv.innerHTML += `<div class="question1">${quest00}</div><div class="gap"></div>`;
+
+  // Create a dropdown for each question
+  const select = document.createElement("select");
+  select.name = `response${index}`;
+
+  options.forEach((option) => {
+    const opt = document.createElement("option");
+    opt.value = option;
+    opt.textContent = option.slice(3);
+    select.appendChild(opt);
+  });
+
+  select.selectedIndex = -1; // Math.floor(Math.random() * 6);
+  select.className = "question2";
+
+  select.addEventListener("keydown", (event) => {
+    if (event.ctrlKey && event.altKey && event.key === "F3") {
+      event.preventDefault(); // Prevent default browser behavior
+
+      if (select.selectedIndex === -1) {
+        select.selectedIndex = Math.floor(Math.random() * options.length);
+      } else {
+        select.selectedIndex = -1;
+      }
+    }
+  });
+
+  questionDiv.appendChild(select);
+
+  // Append questionDiv with question and select directly to container
+  questionsContainer.appendChild(questionDiv);
+});
+/*questions.forEach((question, index) => {
+  const questionDiv = document.createElement("div");
+  questionDiv.className = "question";
+  const quenr = question.match("^[0-9]+. ")[0];
   const skipnr = quenr.length;
   const quest00 = question.slice(skipnr);
   questionDiv.innerHTML = `<div class="quenr">${quenr}</div>`;
@@ -342,39 +383,22 @@ questions.forEach((question, index) => {
 
   select.selectedIndex = -1; // Math.floor(Math.random() * 6);
   select.className = "question2";
-  questionDiv.appendChild(select);
-/*Here's an idea for a keyboard shortcut to toggle between random and -1:
-Shortcut: Ctrl+Shift+R (or Cmd+Shift+R on Mac)
-How it works:
- * Initial state: When the user first interacts with the select element, no option is selected, and selectedIndex is set to -1.
- * Toggling:
-   * First press: When the user presses Ctrl+Shift+R, the script generates a random number between 0 and the number of options - 1, and sets selectedIndex to that random number.
-   * Second press: If the user presses Ctrl+Shift+R again, the script sets selectedIndex back to -1, clearing the selection.
-   * Subsequent presses: The process repeats, alternating between random selection and no selection.
-Implementation:
-You can implement this functionality by adding an event listener to the select element:*/
-select.addEventListener('keydown', (event) => {
-  if (event.ctrlKey && event.altKey && event.key === 'F3') {
-    event.preventDefault(); // Prevent default browser behavior
+  select.addEventListener("keydown", (event) => {
+    if (event.ctrlKey && event.key === "r") {
+      event.preventDefault(); // Prevent default browser behavior
 
-    if (select.selectedIndex === -1) {
-      select.selectedIndex = Math.floor(Math.random() * options.length);
-    } else {
-      select.selectedIndex = -1;
+      if (select.selectedIndex === -1) {
+        select.selectedIndex = Math.floor(Math.random() * options.length);
+      } else {
+        select.selectedIndex = -1;
+      }
     }
-  }
-});
-
-/*Customization:
- * You can adjust the shortcut key combination to fit your preferences.
- * Consider adding a visual indicator to show the current selection state (e.g., a different background color or border).
- * You might want to provide a tooltip or context menu option to explain the shortcut's functionality.
-By implementing this keyboard shortcut, you can provide a convenient way for users to quickly toggle between random and no selection, enhancing the user experience.
-*/
+  });
+  questionDiv.appendChild(select);
 
   // Append questionDiv with question and select directly to container
   questionsContainer.appendChild(questionDiv);
-});
+});*/
 const form = document.getElementById("questionnaireForm");
 
 function exportToCSV(myResponses) {
