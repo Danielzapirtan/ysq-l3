@@ -340,7 +340,7 @@ questions.forEach((question, index) => {
     select.appendChild(opt);
   });
 
-  select.selectedIndex = Math.floor(Math.random() * 6);
+  select.selectedIndex = -1; // Math.floor(Math.random() * 6);
   select.className = "question2";
   questionDiv.appendChild(select);
 
