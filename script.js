@@ -342,6 +342,7 @@ questions.forEach((question, index) => {
 
   select.selectedIndex = -1; // Math.floor(Math.random() * 6);
   select.className = "question2";
+  questionDiv.appendChild(select);
 /*Here's an idea for a keyboard shortcut to toggle between random and -1:
 Shortcut: Ctrl+Shift+R (or Cmd+Shift+R on Mac)
 How it works:
@@ -370,7 +371,6 @@ select.addEventListener('keydown', (event) => {
  * You might want to provide a tooltip or context menu option to explain the shortcut's functionality.
 By implementing this keyboard shortcut, you can provide a convenient way for users to quickly toggle between random and no selection, enhancing the user experience.
 */
-  questionDiv.appendChild(select);
 
   // Append questionDiv with question and select directly to container
   questionsContainer.appendChild(questionDiv);
