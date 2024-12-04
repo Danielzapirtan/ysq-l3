@@ -333,15 +333,11 @@ function main() {
     const questionDiv = document.createElement("div");
     questionDiv.classList.add("question"); // Preferred over className
 
-    const questionNumber = question.match("^[0-9]\+\. ");
+    const questionNumber = question.match("^[0-9]*..")[0];
     const questionText = question.slice(questionNumber.length);
-    // Split number handling
-    /*const [questionNumber, questionText] = question
-      .split(".")
-      .map((s) => s.trim());*/
 
     questionDiv.innerHTML = `
-    <div class="quenr">${questionNumber}.</div>
+    <div class="quenr">${questionNumber}</div>
     <div class="question1">${questionText}</div>
     <div class="gap"></div>
   `;
