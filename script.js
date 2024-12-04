@@ -333,10 +333,12 @@ function main() {
     const questionDiv = document.createElement("div");
     questionDiv.classList.add("question"); // Preferred over className
 
+    const questionNumber = question.match("^[0-9]\+\. ");
+    const questionText = question.slice(questionNumber.length);
     // Split number handling
-    const [questionNumber, questionText] = question
+    /*const [questionNumber, questionText] = question
       .split(".")
-      .map((s) => s.trim());
+      .map((s) => s.trim());*/
 
     questionDiv.innerHTML = `
     <div class="quenr">${questionNumber}.</div>
@@ -389,20 +391,6 @@ function main() {
     exportToCSV(responses);
     //processResponses(myResponses);
   }
-    function saveFile() {
-      const fileContent = document.getElementById('fileContent').value;
-      fetch('/api/save-file', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ content: fileContent })
-      })
-      .then(response => response.json())
-      .then(data => console.log(data))
-      .catch(error => console.error(error));
-    }
-
 }
 
 document.addEventListener('DOMContentLoaded', main);
