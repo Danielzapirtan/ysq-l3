@@ -357,7 +357,7 @@ function main() {
     // If URL is "https://example.com?mode=dark"
     // hasQueryParam('mode') would return true
     // hasQueryParam('theme') would return false
-    select.selectedIndex = (hasQueryParam('test') || true) ? Math.floor(Math.random() * options.length) : -1;
+    select.selectedIndex = true ? Math.floor(Math.random() * options.length) : -1;
 
     questionDiv.appendChild(select);
     questionsContainer.appendChild(questionDiv);
