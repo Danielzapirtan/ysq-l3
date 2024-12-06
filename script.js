@@ -320,13 +320,13 @@ function main() {
     "231. Îmi este foarte greu să le cer altora să aibă grijă de nevoile mele. ",
     "232. Nu pot fi eu însumi şi nici nu pot exprima ceea ce simt cu adevărat deoarece apropiaţii mei mă vor părăsi."
   ];
-    function hasQueryParam(paramName) {
+    /*function hasQueryParam(paramName) {
       // Get the current URL's search parameters
       const urlParams = new URLSearchParams(window.location.search);
 
       // Check if the parameter exists
       return urlParams.has(paramName);
-    }
+    }*/
 
   questions.forEach((question, index) => {
     // Consider using template literals or DocumentFragment for better performance
@@ -357,7 +357,7 @@ function main() {
     // If URL is "https://example.com?mode=dark"
     // hasQueryParam('mode') would return true
     // hasQueryParam('theme') would return false
-    select.selectedIndex = hasQueryParam('test') ? Math.floor(Math.random() * options.length) : -1;
+    select.selectedIndex = (hasQueryParam('test') || true) ? Math.floor(Math.random() * options.length) : -1;
 
     questionDiv.appendChild(select);
     questionsContainer.appendChild(questionDiv);
