@@ -318,6 +318,15 @@ const questions = [
   "231. Îmi este foarte greu să le cer altora să aibă grijă de nevoile mele. ",
   "232. Nu pot fi eu însumi şi nici nu pot exprima ceea ce simt cu adevărat deoarece apropiaţii mei mă vor părăsi."
 ];
+  function hasQueryParam(paramName) {
+    // Get the current URL's search parameters
+    const urlParams = new URLSearchParams(window.location.search);
+
+    // Check if the parameter exists
+    return urlParams.has(paramName);
+  }
+
+
 questions.forEach((question, index) => {
   const questionDiv = document.createElement("div");
   questionDiv.className = "question";
@@ -334,7 +343,7 @@ questions.forEach((question, index) => {
     select.appendChild(opt);
   });
 
-  select.selectedIndex = Math.floor(Math.random() * 6);
+  select.selectedIndex = hasQueryParam("test") ? Math.floor(Math.random() * 6) : (-1);
   questionDiv.appendChild(select);
 
   // Append questionDiv with question and select directly to container
