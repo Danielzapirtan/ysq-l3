@@ -348,8 +348,8 @@ questions.forEach((question, index) => {
   select.selectedIndex = hasQueryParam("test") ? Math.floor(Math.random() * 6) : (-1);
   
   // Add click event listener to the select element
-  select.addEventListener('click', function() {
-    selectex = (selectex === index) ? -1 : index;
+  questionDiv.addEventListener('click', function() {
+    selectex = (selectex === index) ? (-1) : index;
     // Remove 'question1-selected' class from all questions
     document.querySelectorAll('.question1').forEach(q => {
       q.classList.remove('question1-selected');
@@ -357,12 +357,11 @@ questions.forEach((question, index) => {
     
     // Add 'question1-selected' class to the current question
     if (selectex === index) {
-      this.parentElement.querySelector('.question1').classList.add('question1-selected');
+      this.parentElement.querySelectorAll('.question1')[index].classList.add('question1-selected');
     }
   });
 
   questionDiv.appendChild(select);
-
   // Append questionDiv with question and select directly to container
   questionsContainer.appendChild(questionDiv);
 });
