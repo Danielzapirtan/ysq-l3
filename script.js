@@ -327,7 +327,7 @@ const questions = [
   }
 
 
-// ... (your existing code remains the same until the questions.forEach loop)
+let selectex = -1;
 
 questions.forEach((question, index) => {
   const questionDiv = document.createElement("div");
@@ -349,13 +349,16 @@ questions.forEach((question, index) => {
   
   // Add click event listener to the select element
   select.addEventListener('click', function() {
+    selectex = (selectex === index) ? -1 : index;
     // Remove 'question1-selected' class from all questions
     document.querySelectorAll('.question1').forEach(q => {
       q.classList.remove('question1-selected');
     });
     
     // Add 'question1-selected' class to the current question
-    this.parentElement.querySelector('.question1').classList.add('question1-selected');
+    if (selectex === index) {
+      this.parentElement.querySelector('.question1').classList.add('question1-selected');
+    }
   });
 
   questionDiv.appendChild(select);
