@@ -327,10 +327,12 @@ const questions = [
   }
 
 
+// ... (your existing code remains the same until the questions.forEach loop)
+
 questions.forEach((question, index) => {
   const questionDiv = document.createElement("div");
   questionDiv.className = "question";
-  questionDiv.innerHTML = `<div class=question1>${question}</div>`;
+  questionDiv.innerHTML = `<div class="question1">${question}</div>`;
 
   // Create a dropdown for each question
   const select = document.createElement("select");
@@ -344,11 +346,24 @@ questions.forEach((question, index) => {
   });
 
   select.selectedIndex = hasQueryParam("test") ? Math.floor(Math.random() * 6) : (-1);
+  
+  // Add click event listener to the select element
+  select.addEventListener('click', function() {
+    // Remove 'question1-selected' class from all questions
+    document.querySelectorAll('.question1').forEach(q => {
+      q.classList.remove('question1-selected');
+    });
+    
+    // Add 'question1-selected' class to the current question
+    this.parentElement.querySelector('.question1').classList.add('question1-selected');
+  });
+
   questionDiv.appendChild(select);
 
   // Append questionDiv with question and select directly to container
   questionsContainer.appendChild(questionDiv);
 });
+
 const form = document.getElementById("questionnaireForm");
 
 function exportToCSV(myResponses) {
